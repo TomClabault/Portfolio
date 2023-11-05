@@ -161,6 +161,6 @@ Fonctionnalités implémentées:
 - Ajout / suppression d'une référence dans la base
 - Recherche par mots clés
 - Affichage dynamique personnalisable des colonnes à afficher
-![Démonstration recherche/insertion](README_data/img/biblio1.png)
+![Démonstration recherche/insertion](README_data/img/biblio1.PNG)
 - Édition des références de la base
-![Démonstration édition des références](README_data/img/biblio2.png)
+![Démonstration édition des références](README_data/img/biblio2.PNG)
