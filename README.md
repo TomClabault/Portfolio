@@ -1,5 +1,6 @@
 # - M2-
 ## \[Individuel\] (En cours) Moteur de rendu par path tracing (Monte Carlo) - C++, SYCL
+[Base de code](https://github.com/TomClabault/SYCL-ray-tracing)
 
 Moteur de rendu par path tracing (méthode de Monte Carlo) écrit en C++ et utilisant une implémentation du standard SYCL.
 SYCL permet l'exécution sur CPU, GPU ou accélérateurs FPGA du même code d'une application C++.
@@ -10,17 +11,21 @@ Fonctionnalités implémentées:
 - Éclairage indirect (nombre de rebonds arbitraire)
 - Modèle de matière à micro facettes (BRDF de Cook Torrance) : Métallique et rugosité
 - Échantillonnage préférentiel de la BRDF de Cook Torrance
-
+![comparaison Cook Torrance IS](README_data/img/brdf_is_comparison.png)
 - Environment map HDR
 - Tone mapping HDR (gamma et exposition)
 - BVH (hiérarchie de volumes englobants) basée sur un octree + volumes englobants à 7 plans
 - Intégration d'Intel® Open Image Denoise
 ## \[Personnel\] (En cours) Interpréteur 8086 - C++
+[Base de code](https://github.com/TomClabault/ComputerEnhance)
+
 Projet personnel en lien avec le cours en ligne "Performance Aware Programming" de Casey Muratori: https://www.computerenhance.com/
 
 Fonctionnalités implémentées:
 - Décodage de l'instruction MOV
 ## \[Individuel\] (Terminé) Moteur de rendu par rastérisation - C++, OpenGL
+[Base de code](https://github.com/TomClabault/M2-synthese/tree/master/TPs/from_scratch)
+
 Moteur de rendu temps réel écrit en C++ et utilisant OpenGL.
 
 ![démonstration OpenGL](README_data/img/TP_OpenGL.jpg)
@@ -40,6 +45,8 @@ Fonctionnalités implémentées:
 - Skysphere & skybox
 - Tone mapping HDR (gamma et exposition)
 ## \[Individuel\] (Terminé) Modélisation géométrique (SDF, surfaces de Bézier et déformations de maillages) - C++, Qt6
+[Base de code](https://github.com/TomClabault/M2_modelisation)
+
 Modélisation géométrique par SDF (fonctions de distance signée), surfaces de Bézier, surfaces de révolution + fonctionnalités de déformation.
 
 L'algorithme de marching cube pour le maillage des SDF été fourni.
@@ -60,6 +67,8 @@ Fonctionnalités implémentées:
 - Torsion d'un maillage
 ![démonstration révolution et torsion maillage](README_data/img/torsion.jpg)
 ## \[Individuel\] (Terminé) Raffinement de maillage 2D (triangulation de Delaunay) - C++
+[Base de code](https://github.com/TomClabault/M2_GAM)
+
 Projet de géométrie algorithmique sur des maillages triangulés 2D.
 
 Fonctionnalités implémentées:
@@ -70,6 +79,8 @@ Fonctionnalités implémentées:
 # - M1 -
 
 ## \[Personnel\] (Terminé) Moteur de rendu par path tracing (Monte Carlo) - C++,  NVIDIA OptiX 7 (Owl)
+[Base de code](https://github.com/TomClabault/Owl-OptiX-7)
+
 Moteur de rendu par path tracing (méthode de Monte Carlo) écrit avec la library [Owl](https://github.com/owl-project/owl), un wrapper autour de OptiX 7, framework de NVIDIA conçu pour les applications de ray tracing tirant parti des accélérateurs matériels des GPU NVIDIA GeForce RTX™.
 
 Fonctionnalités implémentées:
@@ -83,6 +94,8 @@ Fonctionnalités implémentées:
 
 ![démonstration rt optix](README_data/img/rt_optix.jpeg)
 ## \[En groupe\] (Terminé) Moteur de rendu par ray tracing + rastérisation (hybrid) - C++,  Qt6
+[Base de code](https://github.com/TomClabault/RayTracerCPP/tree/main/tp2)
+
 Fonctionnalités implémentées:
 
 - Interface entièrement faite avec Qt6 C++
@@ -107,6 +120,7 @@ La géométrie de la sphère est parfaitement lisse. L'effet de relief des trian
 ![Démonstration SSAO](README_data/img/ssao.jpg)
 
 ## \[En groupe\] (Terminé) Détection de contours (filtres de Sobel, Prewitt) et de lignes (transformée de Hough) C++, OpenCV
+[Base de code](https://github.com/TomClabault/AnalyseImage)
 
 Fonctionnalités implémentées:
 - Méthode de seuillage local (utile lorsqu'une même image contient des variations de luminosité):
@@ -126,6 +140,8 @@ De gauche à droite:
 3. Segments retenus après seuillage de l'espace de Hough et délimitation des droites
 # - L3 -
 ## \[Personnel\] (Terminé) Filtre de Canny (détection de contours) - C, NVIDIA CUDA
+[Base de code](https://github.com/TomClabault/CUDAProgramming)
+
 Implémentation du filtre de Canny en C et CUDA pour l'implémentation GPU.
 
 Étapes de l'algorithme de détection:
@@ -138,6 +154,7 @@ Implémentation du filtre de Canny en C et CUDA pour l'implémentation GPU.
 ![Démonstration canny edge detection](README_data/img/canny_edge.jpg)
 Source image: wikipedia
 ## \[En groupe\] (Terminé) Moteur de rendu par ray tracing - Java, JavaFX
+[Base de code](https://github.com/TomClabault/RayTracer/)
 
 Moteur de rendu par lancer de rayons (éclairage direct seulement, pas d'estimation de l'équation de rendu) écrit entièrement en Java. L'interface a été réalisée en JavaFX.
 
