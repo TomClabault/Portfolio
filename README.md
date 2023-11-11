@@ -6,7 +6,7 @@ Moteur de rendu par path tracing (méthode de Monte Carlo) écrit en C++ dans le
 Le langage recommandé pour le projet était le C++ dans sa forme la plus simple mais j'ai, par curiosité, décidé d'utiliser l'implémentation d'Intel de SYCL. SYCL est qui standard qui permet l'exécution sur CPU, GPU ou accélérateurs FPGA du même code C++ d'une application. L'utilisation de SYLC m'a donc permis d'exécuter le code de mon path tracer sur CPU ou GPU sans avoir besoin  de ne modifier quoi que ce soit dans le code de l'application.
 J'ai cependant fait face à certaines complications avec SYCL (notamment au niveau des drivers Intel de mon ordinateur portable) qui m'ont poussées à devoir réécrire le code de l'application sans SYCL, en C++ sur CPU donc.
 
-J'aimerais à terme réécrire ce path tracer sur GPU en utilisant la library [HIP RT](https://gpuopen.com/hiprt/) qui permet d'écrire des applications de ray tracing tirant partie des accélérateurs de ray tracing des cartes graphiques AMD RDNA2 et RDNA3. L'application pourra aussi s'exécuter sur les cartes graphiques NVIDIA mais sans tirer partie des RT Cores.
+J'aimerais à terme réécrire ce path tracer sur GPU en utilisant la library [HIP RT](https://gpuopen.com/hiprt/) qui permet d'écrire des applications tirant partie des accélérateurs de ray tracing des cartes graphiques AMD RDNA2 et RDNA3. L'application pourra aussi s'exécuter sur les cartes graphiques NVIDIA mais sans tirer partie des RT Cores.
 
 ![démonstration path tracer](README_data/img/rendu_PBRT_Dragon.jpg)
 Fonctionnalités implémentées:
