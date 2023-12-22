@@ -16,6 +16,8 @@ Fonctionnalités implémentées:
 - Échantillonnage préférentiel de la BRDF de Cook Torrance
 ![comparaison Cook Torrance IS](README_data/img/brdf_is_comparison.png)
 - Environment map HDR
+- Échantillonage préférentiel de l'environment map
+- Multiple Importance Sampling
 - Tone mapping HDR (gamma et exposition)
 - BVH (hiérarchie de volumes englobants) basée sur un octree + volumes englobants à 7 plans
 - Linéarisation de la BVH adaptée au calcul sur GPU
