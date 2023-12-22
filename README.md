@@ -47,7 +47,7 @@ Fonctionnalités implémentées:
 ![démonstration roughness](README_data/img/roughness.jpg)
 - Textures : Diffuse, métallique, rugosité
 - Normal mapping
-![démonstration normal mapping](README_data/img/normal_mapping.png)
+![démonstration normal mapping](README_data/img/normal_mapping.jpg)
 - Irradiance Mapping (pré calcul de la composante diffuse de l'éclairage à partir d'une environment map)
 ![démonstration irradiance map](README_data/img/irradiance_map.jpg)
 - Skysphere & skybox
