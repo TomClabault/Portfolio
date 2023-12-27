@@ -1,86 +1,81 @@
 # - M2-
-## \[Individuel\] (En cours) Moteur de rendu par path tracing (Monte Carlo) - C++, SYCL
-[Base de code](https://github.com/TomClabault/SYCL-ray-tracing)
+## \[Individual\] (Ongoing) Path tracing rendering engine  (Monte Carlo) - C++, SYCL
+[Code base](https://github.com/TomClabault/SYCL-ray-tracing)
 
-Moteur de rendu par path tracing (méthode de Monte Carlo) écrit en C++ dans le cadre de l'UE de synthèse d'image de la deuxième année de Master. 
-Le langage recommandé pour le projet était le C++ dans sa forme la plus simple mais j'ai, par curiosité, décidé d'utiliser l'implémentation d'Intel de SYCL. SYCL est qui standard qui permet l'exécution sur CPU, GPU ou accélérateurs FPGA du même code C++ d'une application. L'utilisation de SYLC m'a donc permis d'exécuter le code de mon path tracer sur CPU ou GPU sans avoir besoin  de ne modifier quoi que ce soit dans le code de l'application.
-J'ai cependant fait face à certaines complications avec SYCL (notamment au niveau des drivers Intel de mon ordinateur portable) qui m'ont poussées à devoir réécrire le code de l'application sans SYCL, en C++ sur CPU donc.
+Path tracing engine written in C++. This project was initially written using SYCL. SYCL is a standard written by the Khronos Group that allows one C++ code to be ran on multiple devices including CPUs, GPUs and even FPGA accelerators. 
+Unfortunately, I have been facing issues (discussions with Intel can be found [here](https://community.intel.com/t5/Intel-oneAPI-Data-Parallel-C/SYCL-kernel-hangs-on-long-workloads/m-p/1536759#M3358) and [here](https://community.intel.com/t5/Intel-oneAPI-Data-Parallel-C/Can-t-find-the-source-of-memory-corruption-in-SYCL-ray-tracer/m-p/1539563#M3383)) with SYCL that lead me to reimplement it in pure C++ (the task was pretty much effortless as a SYCL code is already very close to pure C++).
 
-J'aimerais à terme réécrire ce path tracer sur GPU en utilisant la library [HIP RT](https://gpuopen.com/hiprt/) qui permet d'écrire des applications tirant partie des accélérateurs de ray tracing des cartes graphiques AMD RDNA2 et RDNA3. L'application pourra aussi s'exécuter sur les cartes graphiques NVIDIA mais sans tirer partie des RT Cores.
+I'd like to rewrite this path tracer with the [HIP RT](https://gpuopen.com/hiprt/) library. This would allow the use of the ray tracing accelerators of RDNA2+ AMD GPUs. An HIP RT application can also be written using the [Orochi](https://gpuopen.com/orochi/) library which allows the application to run on NVIDIA GPUs as well as AMD GPUs (unlike [OptiX](https://developer.nvidia.com/rtx/ray-tracing/optix) which is NVIDIA only).
 
 ![démonstration path tracer](README_data/img/rendu_PBRT_Dragon.jpg)
-Fonctionnalités implémentées:
-- Éclairage direct
-- Éclairage indirect
-- Modèle de matière à micro facettes (BRDF de Cook Torrance) : Métallique et rugosité
-- Échantillonnage préférentiel de la BRDF de Cook Torrance
+Implemented features:
+- Direct lighting
+- Indirect lighting
+- Microfacet BRDF (Cook Torrance BRDF) : Roughness and metallic
+- Cook Torrance BRDF Importance Sampling
 ![comparaison Cook Torrance IS](README_data/img/brdf_is_comparison.png)
-- Environment map HDR
-- Échantillonage préférentiel de l'environment map
+- HDR Environment Map
+- Environment Map Importance Sampling
 - Multiple Importance Sampling
-- Tone mapping HDR (gamma et exposition)
-- BVH (hiérarchie de volumes englobants) basée sur un octree + volumes englobants à 7 plans
-- Linéarisation de la BVH adaptée au calcul sur GPU
-- Intégration d'Intel® Open Image Denoise
-## \[Personnel\] (En cours) Interpréteur 8086 - C++
-[Base de code](https://github.com/TomClabault/ComputerEnhance)
+- Tone mapping HDR (gamma and exposition)
+- Octree based BVH + 7 planes bounding volumes
+- Linear BVH adapted for GPU computations
+- Intel® Open Image Denoise integration
+## \[Personnal\] (Ongoing) 8086 Interpreter - C++
+[Code base](https://github.com/TomClabault/ComputerEnhance)
 
-M'intéressant à la performance des applications et à l'architecture des processeurs de nos machines (CPU et GPU), j'ai décidé de suivre le cours en ligne "Performance Aware Programming" de Casey Muratori: https://www.computerenhance.com/, un vidéaste que j'ai regardé la première fois sur YouTube (sa chaîne [ici](https://www.youtube.com/c/MollyRocket)) et donc j'ai beaucoup apprécié la philosophie.
-Son cours "Performance Aware Programming" s'inscrit dans la continuité des vidéos qu'il a premièrement publiées sur YouTube et approfondit la thématique du fonctionnement d'un processeur moderne dans le but de mieux comprendre d'où peuvent venir les problèmes de performance de certaines applications que nous utilisons.
+Being interested in hardware architecture and software performance, I am following Casey Muratori's online course "Performance Aware Programming": https://www.computerenhance.com/ .
 
-Ce projet personnel est une implémentation des exercices donnés par Casey dans son cours en ligne.
+This personnal project is an implementation of the homework given by Casey in his online course.
 
-Fonctionnalités implémentées:
-- Décodage de l'instruction MOV
-## \[Individuel\] (Terminé) Moteur de rendu par rastérisation - C++, OpenGL
-[Base de code](https://github.com/TomClabault/M2-synthese/tree/master/TPs/from_scratch)
+Implemented features:
+- MOV instruction decoding
+## \[Individual\] (Done) Rasterization rendering engine - C++, OpenGL
+[Code base](https://github.com/TomClabault/M2-synthese/tree/master/TPs/from_scratch)
 
-Moteur de rendu temps réel écrit en C++ et utilisant OpenGL dans le cadre de l'UE de synthèse d'image du M2.
-Le but de ce projet était d'apprendre à utiliser le pipeline de rendu OpenGL afin d'afficher la scène du Bistro. Ce projet a été l'occasion d'implémenter un système d'ombres (shadow maps) ainsi qu'un système de frustum culling permettant de réduire le nombre de triangles passés au GPU, réduisant ainsi sa charge de calcul. J'ai également implémenté, en bonus, le pré calcul de l'irradiance diffuse de la scène venant du ciel (l'environnement).
+Real-time rendering engine written in C++ and OpenGL 4.3.
 
 ![démonstration OpenGL](README_data/img/TP_OpenGL.jpg)
 
-Fonctionnalités implémentées:
-- Intégration de ImGui
+Implemented features:
+- ImGui integration
 - Frustum culling
-![démonstration SDF](README_data/img/frustum_culling.jpg)
 - Shadow mapping (Percentage closer filtering)
-- Modèle de matière à micro facettes (BRDF de Cook Torrance) : Métallique et rugosité
+- Microfacet BRDF : Metallic and roughness
 ![démonstration roughness](README_data/img/roughness.jpg)
-- Textures : Diffuse, métallique, rugosité
+- Textures : Diffuse, mettalic, roughness, normals (normal mapping)
 - Normal mapping
 ![démonstration normal mapping](README_data/img/normal_mapping.jpg)
-- Irradiance Mapping (pré calcul de la composante diffuse de l'éclairage à partir d'une environment map)
+- Irradiance Mapping (precomputation of the diffuse irradiance component from an environment map)
 ![démonstration irradiance map](README_data/img/irradiance_map.jpg)
-- Skysphere & skybox
-- Tone mapping HDR (gamma et exposition)
-## \[Individuel\] (Terminé) Modélisation géométrique (SDF, surfaces de Bézier et déformations de maillages) - C++, Qt6
-[Base de code](https://github.com/TomClabault/M2_modelisation)
+- Skyspheres & skyboxes support
+- HDR tone mapping (gamma et exposition)
+## \[Individual\] (Done) Geometric modeling (SDF, Bezier surfaces and mesh deformations) - C++, Qt6
+[Code base](https://github.com/TomClabault/M2_modelisation)
 
-Ce projet initié dans l'UE de modélisation géométrique a eu pour but l'implémentation de surfaces implicites en utilisant des SDF (fonction de distance signée). Les SDF et leurs opérateurs constituent des outils de modélisation très puissants (cf. [le profil](https://www.shadertoy.com/user/iq) ShaderToy d'Inigo Quilez).
-Ce projet a aussi été l'occasion d'implémenter un algorithme de génération et de maillage de surfaces de Bézier et de surfaces de révolution. 
-Des fonctionnalités de déformation de maillage ont aussi été implémentées.
+This project implements the representation of implicit surfaces using SDFs  and their meshing using a marching cube algorithm. Some boolean operators are also defined on the SDFs (union, smooth union, intersection, difference, ...).
+Signed distance functions are very powerful tools (cf. [Inigo Quilez' Shadertoy profile](https://www.shadertoy.com/user/iq)).
+This project also implements revolution surfaces, generation of a mesh from a Bezier surface description and mesh local deformations.
 
-Fonctionnalités implémentées:
-- Fonctions de distance signée (SDF)
-- Opérateur binaires entre SDF (union, union lisse, intersection, différence, ...)
-- Algorithme de ray marching pour le rendu des SDF
+Implemented features:
+- Signed distance functions
+- Boolean operators on SDFs (union, smooth union, intersection, difference, ...)
+- Ray marching algorithm for meshing an SDF
 
 ![démonstration SDF](README_data/img/SDF_to_the_right.jpg)
 
-
-- Génération de points sur une surface de Bézier + maillage de la surface
-- Déformation locale d'un maillage
+- Meshing of a Bezier surface with arbitrary precision
+- Local deformation of a mesh
 ![démonstration Bézier](README_data/img/Bezier.jpg)
 
 
-- Surface de révolution utilisant une courbe de Bézier comme profil de révolution
-- Torsion d'un maillage
+- Revolution surfaces using a Bezier curve as the revolution profile
+- Mesh twisting operator
 ![démonstration révolution et torsion maillage](README_data/img/torsion.jpg)
-## \[Individuel\] (Terminé) Raffinement de maillage 2D (triangulation de Delaunay) - C++
-[Base de code](https://github.com/TomClabault/M2_GAM)
+## \[Individual\] (Done) 2D Mesh refinment (Delaunay triangulation) - C++
+[Code base](https://github.com/TomClabault/M2_GAM)
 
-Projet de géométrie algorithmique sur des maillages triangulés 2D avec pour but la manipulation d'une structure de données permettant la représentation de maillages ainsi que l'implémentation d'algorithme permettant de manipuler ces maillages.
+Computational geometry project Projet de géométrie algorithmique sur des maillages triangulés 2D avec pour but la manipulation d'une structure de données permettant la représentation de maillages ainsi que l'implémentation d'algorithme permettant de manipuler ces maillages.
 
 Fonctionnalités implémentées:
 - Insertion d'un point à l'intérieur/extérieur d'un maillage et remaillage de la surface
