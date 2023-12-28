@@ -1,5 +1,5 @@
 # - M2-
-## \[Individual\] (Ongoing) Path tracing rendering engine  (Monte Carlo) - C++, SYCL
+## \[Individual\] (Ongoing) Path tracing rendering engine (Monte Carlo) - C++, SYCL
 [Code base](https://github.com/TomClabault/SYCL-ray-tracing)
 
 Path tracing engine written in C++. This project was initially written using SYCL. SYCL is a standard written by the Khronos Group that allows one C++ code to be ran on multiple devices including CPUs, GPUs and even FPGA accelerators. 
@@ -75,124 +75,120 @@ Implemented features:
 ## \[Individual\] (Done) 2D Mesh refinment (Delaunay triangulation) - C++
 [Code base](https://github.com/TomClabault/M2_GAM)
 
-Computational geometry project Projet de géométrie algorithmique sur des maillages triangulés 2D avec pour but la manipulation d'une structure de données permettant la représentation de maillages ainsi que l'implémentation d'algorithme permettant de manipuler ces maillages.
+Computational geometry project that manipulates a data structure representing meshes and that allows efficient implementations of computational geometry algorithms. 
 
-Fonctionnalités implémentées:
-- Insertion d'un point à l'intérieur/extérieur d'un maillage et remaillage de la surface
-- Algorithme de Lawson pour améliorer la qualité d'un maillage (triangulation de Delaunay)
-- Algorithme de Rupert (triangulation de Delaunay contrainte)
+Implemented features:
+- Insertion of a point outside or inside the convex hull of a triangulation + automatic meshing of the point into the existing triangulation
+- Lawson algorithme to improve the quality of an existing triangulation by making a Delaunay triangulation
+- Rupert algorithm (triangulation of a planar straight-line graph)
 ![démonstration Lawson](README_data/img/demo_lawson.jpg)
 # - M1 -
 
-## \[Personnel\] (Terminé) Moteur de rendu par path tracing (Monte Carlo) - C++,  NVIDIA OptiX 7 (Owl)
-[Base de code](https://github.com/TomClabault/Owl-OptiX-7)
+## \[Personnal\] (Done) Path tracinng rendering engine (Monte Carlo) - C++,  NVIDIA OptiX 7 (Owl)
+[Code base](https://github.com/TomClabault/Owl-OptiX-7)
 
-Moteur de rendu par path tracing (méthode de Monte Carlo) écrit avec la library [Owl](https://github.com/owl-project/owl), un wrapper autour de OptiX 7 qui est un framework de NVIDIA permettant de concevoir des applications de ray tracing tirant parti des accélérateurs matériels des GPU NVIDIA GeForce RTX™.
-C'est par curiosité pour la technologie OptiX que j'ai décidé de me lancer dans ce projet.
+Path tracing rendering engine (Monte Carlo integration) written with the [Owl](https://github.com/owl-project/owl) library, a wrapper around [OptiX](https://developer.nvidia.com/rtx/ray-tracing/optix) 7 which NVIDIA's general (not reserved to rendering) ray tracing framework that can make use of the ray tracing hardware accelerators of NVIDIA GeForce RTX™ GPUs.
 
-Fonctionnalités implémentées:
-- Éclairage direct
-- Éclairage indirect
-- Modèle de matière à micro facettes (BRDF de Cook Torrance)
-- Textures pour la couleur
+Implemented features:
+- Direct lighting
+- Indirect lighting
+- Cook Torrance BRDF
+- Diffuse textures
 - Smooth normals
-- Intégration de ImGui
-- Intégration de l'AI Denoiser de NVIDIA
+- ImGui Integration
+- Integration of NVIDIA's OptiX™ AI-Accelerated Denoiser
 
 ![démonstration rt optix](README_data/img/rt_optix.jpeg)
-## \[En groupe\] (Terminé) Moteur de rendu par ray tracing + rastérisation (hybrid) - C++,  Qt6
-[Base de code](https://github.com/TomClabault/RayTracerCPP/tree/main/tp2)
+## \[Individual\] (Done) Ray tracing & rasterization (hybrid) software rendering engine - C++, Qt6
+[Code base](https://github.com/TomClabault/RayTracerCPP/tree/main/tp2)
 
-Projet de lancer de rayons sur CPU dans le cadre de l'UE optionnelle de synthèse d'images en M1. Le sujet du projet n'avait pour but de nous faire implémenter que quelques fonctionnalités de bases telles que les ombres mais par curiosité, de nombreuses autres fonctionnalités ont été implémentées.
+CPU ray-tracer + rasterizer entirely done in C++ and Qt6 for the interface.
 
-Fonctionnalités implémentées:
+Implemented features:
 
-- Interface entièrement faite avec Qt6 C++
+- Qt6 C++ Interface
 ![démonstration interface Qt6](README_data/img/RT_M1_Interface1.png)
-- Rendu par lancer de rayons
-- Rendu par rastérisation
-- Algorithme de clipping en clip space
-- Rendu hybride (rastérisation pour la visibilité, lancer de rayons pour le shading)
-- Ombres franches (lancer de rayons secondaires)
+- Ray tracing rendering
+- Rasterization rendering
+- Hybrid rendering (rasterization of the visibility + ray tracing for the shading)
+- Clip-space clipping algorithme
+- Hard shadows (shadow rays)
 ![ombres franches](README_data/img/hard_shadows.jpg)
-- BVH (hiérarchie de volumes englobants) basée sur un octree + volumes englobants à 7 plans
-- Réflexions floues (rugosité)
+- Octree based BVH + 7 planes bounding volumes
+- Rough reflexions (random ray cast around the normal)
 - Normal mapping
-- Diffuse texture, roughness map, ambient occlusion map
+- Diffuse texture, roughness map, ambient occlusion mapping
 - Parallax occlusion mapping
-- Skysphere
+- Skyspheres support
 ![Démonstration normal mapping, parallax, réflexions floues, skysphere](README_data/img/sphere_rose.jpeg)
-La géométrie de la sphère est parfaitement lisse. L'effet de relief des triangles sur la sphère est dû uniquement à l'algorithme de parallax mapping.
-- Skybox
+The mesh of the sphere is perfectly flat (analytic sphere). The perceived geometry is only due to the parallax mapping algorithm.
+- Skyboxes support
 - Super Sampling Anti Aliasing (SSAA)
-- Implémentation AVX2 (speedup x8) de Screen Space Ambient Occlusion (SSAO)
+- AVX2 Screen Space Ambient Occlusion (SSAO) implementation
 ![Démonstration SSAO](README_data/img/ssao.jpg)
-- Modélisation de cheveux
+- Hair modelisation
 ![Démonstration cheveux](README_data/img/cheveux.jpg)
-## \[En groupe\] (Terminé) Détection de contours (filtres de Sobel, Prewitt) et de lignes (transformée de Hough) C++, OpenCV
-[Base de code](https://github.com/TomClabault/AnalyseImage)
+## \[Group\] (Done) Edge (Sobel, Prewitt filters) and line (Hough transform) detection - C++, OpenCV
+[Code base](https://github.com/TomClabault/AnalyseImage)
 
-Projet de groupe de M1 visant à implémenter quelques algorithmes de détection de contours / lignes dans une image. La librairie OpenCV na été utilisée que pour le chargement et l'affichage des images, pas leur traitement.
+Group project that implements some edge and line detection algorithms in an image. OpenCV was used only for loading and displaying images.
 
-Fonctionnalités implémentées:
-- Méthode de seuillage local (utile lorsqu'une même image contient des variations de luminosité):
-La partie en haut à droite de la grille de sudoku est plus lumineuse que la partie en bas à gauche. Une méthode de seuillage global pour filtrer les contours détectés est inefficace:
+Implemented features:
+- Local thresholding method (useful when the same image contains variations in brightness):
+The top right of the sudoku grid is brighter than the bottom left part of the image. A global thresholding approach is thus ineffective:
 ![grille sudoku global](README_data/img/threshold_global.jpg)
-La moitié des contours ne sont pas détectés puisqu'ils ne passent pas le seuillage.
+Half of the edges aren't detected because one single threshold can only match half of the image.
 
-Une méthode de seuillage local est bien plus efficace:
+A local thresholding approach is much more effective:
 ![grille sudoku local](README_data/img/threshold_local.jpg)
-Le niveau de seuillage est ajusté en fonction de la luminosité locale de l'image, les variations de luminosité globale de l'image affectent donc très peu cette méthode et les résultats sont bien meilleurs qu'avec une méthode de seuillage global.
+Le thresholding level is ajusted according to the local brightness of the image. Global brightness changes barely affect this method and the results are way better than those obtained with a global thresholding?
 
-- Transformée de Hough (détection de lignes):
+- Hough Transform (line detection):
 ![hough transform](README_data/img/hough.jpg)
-De gauche à droite:
-1. Détection de contour sur un cube avec un filtre de Kirsch
-2. Visualisation des paramètres $\rho$ et $\theta$ des droites détectées dans l'espace de Hough
-3. Segments retenus après seuillage de l'espace de Hough et délimitation des droites
+From left to right:
+1. Edge detection of a cube with a Kirsch filter
+2. Visualization of the $\rho$ and $\theta$ parameters of the detected lines in Hough space
+3. Lines retained after thresholding the Hough space and delimiting the lines.
 # - L3 -
-## \[Personnel\] (Terminé) Filtre de Canny (détection de contours) - C, NVIDIA CUDA
-[Base de code](https://github.com/TomClabault/CUDAProgramming)
+## \[Personnal\] (Done) Canny Edge Detection Filter - C, NVIDIA CUDA
+[Code base](https://github.com/TomClabault/CUDAProgramming)
 
-Ce projet personnel a été réalisé lorsque j'ai abotdé CUDA pour la première fois. La détection de contour est un algorithme facilement parallélisable d'où ma volonté de l'implémenter en CUDA sur GPU.
+Personnal project made with CUDA in pure C that implements the Canny edge detection filter. 
 
-Étapes de l'algorithme de détection:
-1. Passage d'un flou gaussien pour réduire les hautes fréquences de l'image (réduit le risque de contours faux positifs à cause du bruit de l'image)
-2. Filtre de Sobel pour détecter les contours (gradients)
-3. Application d'un seuil pour éliminer les contours (gradients) trop faibles
-4. Double thresholding: marquage des contours comme "faibles" ou "forts" en fonction de deux seuils donnés à l'exécution.
-5. Hystérésis pour ne garder que les bords significatifs: contour "fort" ou contour "faible" connecté (8 connexité) à un contour "fort"
+Steps of the detection:
+1. Gaussian blur pass to reduce high frequencies in the image (reduces the risk of false positive edge detections due to the noise in the image)
+2. Sobel filter to detect edges (gradients)
+3. Apply a threshold to eliminate edges (gradients) that are too weak
+4. Double thresholding: separates "weak" from "strong" edges according to 2 thresholds given at execution.
+5. Hysteresis to keep only significant edges : "strong" edges or "weak" edges connected to a strong edge (8-connexity)
 
 ![Démonstration canny edge detection](README_data/img/canny_edge.jpg)
 Source image: wikipedia
-## \[En groupe\] (Terminé) Moteur de rendu par ray tracing - Java, JavaFX
-[Base de code](https://github.com/TomClabault/RayTracer/)
+## \[Group\] (Done) Ray tracing rendering engine - Java, JavaFX
+[Code base](https://github.com/TomClabault/RayTracer/)
 
-Projet encadré de plusieurs mois.
-Moteur de rendu par lancer de rayons (éclairage direct seulement, pas d'estimation de l'équation de rendu) écrit entièrement en Java. L'interface a été réalisée en JavaFX.
-Les objectifs principaux du projet étaient d'implémenter l'algorithme de rendu par lancer de rayons à proprement parler ainsi que des matériaux réfléchissant, réfractifs et diffus.
-Le rendu obtenu tel que présenté ci-dessous a donc nécessité l'implémentation d'un bon nombre de fonctionnalités supplémentaires telles que l'environnement, les textures procédurales de damier, les réflexions floues, l'anti-aliasing, ...
+Ray tracing rendering engine (direct lighting, no rendering equation estimation) entirely written in Java. The interface was written using JavaFX.
 
-Fonctionnalités implémentées:
+Implemented features:
 - Skysphere (non HDR)
-- Texture procédurale de damier
-- Plans et sphères
-- Réflexions floues
-- Anti-aliasing SSAA
-- Fresnel
-- Matériaux réfractifs
-- Matériaux miroirs
-- Matériaux diffus
+- Procedural checkerboard texture
+- Analytical planes and spheres
+- Rough reflexions
+- SSAA Anti-aliasing
+- Fresnel effect
+- Refractif materials
+- Mirror materials
+- Diffuse materials
 ![Démonstration ray tracing L2](README_data/img/RTL2.jpg)
 
-## \[En groupe\] (Terminé) Application de gestion de références bibliographiques - Java, JavaFX
+## \[Group\] (Done) Bibliographic references management application - Java, JavaFX
 
-Projet encadré de plusieurs mois en mode agile visant. Le but était de créer une application de gestion de références bibliographiques visant à faciliter la gestion de dizaines voir centaines de sources lors de l'écriture d'une thèse/article de recherche/…
+The goal of this project was to write an application that can ease the management of dozens if not hundreds of references when writing a thesis/a research paper/...
 
-Fonctionnalités implémentées:
-- Ajout / suppression d'une référence dans la base
-- Recherche par mots clés
-- Affichage dynamique personnalisable des colonnes à afficher
+Implemented features:
+- Adding / removing a reference from the base
+- Searching in the base by keywords
+- Dynamic table display with customizable columns
 ![Démonstration recherche/insertion](README_data/img/biblio1.PNG)
-- Édition des références de la base
+- Editing the references already in the base
 ![Démonstration édition des références](README_data/img/biblio2.PNG)
