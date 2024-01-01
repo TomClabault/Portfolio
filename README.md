@@ -11,9 +11,10 @@ I'd like to rewrite this path tracer with the [HIP RT](https://gpuopen.com/hiprt
 Implemented features:
 - Direct lighting
 - Indirect lighting
+![direct vs indirect lighting](README_data/img/indirect_lighting.jpg)
 - Microfacet BRDF (Cook Torrance BRDF) : Roughness and metallic
 - Cook Torrance BRDF Importance Sampling
-![comparaison Cook Torrance IS](README_data/img/brdf_is_comparison.png)
+![comparaison Cook Torrance IS](README_data/img/brdf_is_comparison.jpg)
 - HDR Environment Map
 - Environment Map Importance Sampling
 - Multiple Importance Sampling
@@ -107,7 +108,7 @@ CPU ray-tracer + rasterizer entirely done in C++ and Qt6 for the interface.
 Implemented features:
 
 - Qt6 C++ Interface
-![démonstration interface Qt6](README_data/img/RT_M1_Interface1.png)
+![démonstration interface Qt6](README_data/img/RT_M1_Interface1.jpg)
 - Ray tracing rendering
 - Rasterization rendering
 - Hybrid rendering (rasterization of the visibility + ray tracing for the shading)
