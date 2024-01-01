@@ -142,7 +142,7 @@ Half of the edges aren't detected because one single threshold can only match ha
 
 A local thresholding approach is much more effective:
 ![grille sudoku local](README_data/img/threshold_local.jpg)
-Le thresholding level is ajusted according to the local brightness of the image. Global brightness changes barely affect this method and the results are way better than those obtained with a global thresholding?
+Le thresholding level is ajusted according to the local brightness of the image. Global brightness changes barely affect this method and the results are way better than those obtained with a global thresholding.
 
 - Hough Transform (line detection):
 ![hough transform](README_data/img/hough.jpg)
