@@ -1,11 +1,58 @@
-# - M2-
-## \[Individual\] (Ongoing) Path tracing rendering engine (Monte Carlo) - C++, SYCL
+# --- Side projects ---
+## (Ongoing) HIPRT Monte Carlo path tracing rendering engine - C++, Orochi + HIPRT, OpenGL
+[Code base](https://github.com/TomClabault/HIPRT-Path-Tracer)
+
+![démonstration rt optix](README_data/img/hiprt_p1.jpg)
+
+Physically based Monte Carlo path tracer written with the [HIP RT](https://gpuopen.com/hiprt/) and [Orochi](https://gpuopen.com/orochi/) libraries.
+HIPRT is AMD's equivalent to OptiX (https://developer.nvidia.com/rtx/ray-tracing/optix). It allows the use of the ray tracing accelerators of RDNA2+ AMD GPUs and can run on NVIDIA devices as well (although it wouldn't take advatange of RT cores) as it is not AMD specific. 
+Thanks to the Orochi library, device kernels are compiled at run time and the application doesn't have to be recompiled to be used on a different device.
+## (Ongoing) Following Casey Muratori's online course on "Performance Aware Programming"
+
+Being interested in hardware architecture and software performance, I am following Casey Muratori's online course "Performance Aware Programming": https://www.computerenhance.com/ .
+
+The lectures he gives focus on giving an understanding on modern CPU architecture. The underlying goal is to provide insight on the expected performance of an application and how to profile and optimize it.
+
+What I learnt thanks to his course:
+- CPU Cycles wastes in modern software
+- Intel 8086 Assembly (instructions encoding/decoding, 8086 registers).
+## (Over) Path tracing rendering engine (Monte Carlo) - C++,  NVIDIA OptiX 7 (Owl), OpenGL
+[Code base](https://github.com/TomClabault/Owl-OptiX-7)
+
+Path tracing rendering engine (Monte Carlo integration) written with the [Owl](https://github.com/owl-project/owl) library, a wrapper around [OptiX](https://developer.nvidia.com/rtx/ray-tracing/optix) 7 which NVIDIA's general (not reserved to rendering) ray tracing framework that can make use of the ray tracing hardware accelerators of NVIDIA GeForce RTX™ GPUs.
+
+Implemented features:
+- Direct lighting
+- Indirect lighting
+- Cook Torrance BRDF
+- Diffuse textures
+- Smooth normals
+- ImGui Integration
+- Integration of NVIDIA's OptiX™ AI-Accelerated Denoiser
+
+![démonstration rt optix](README_data/img/rt_optix.jpeg)
+## (Over) Canny Edge Detection Filter - C, NVIDIA CUDA
+[Code base](https://github.com/TomClabault/CUDAProgramming)
+
+Personnal project made with CUDA in pure C that implements the Canny edge detection filter. 
+
+Steps of the detection:
+1. Gaussian blur pass to reduce high frequencies in the image (reduces the risk of false positive edge detections due to the noise in the image)
+2. Sobel filter to detect edges (gradients)
+3. Apply a threshold to eliminate edges (gradients) that are too weak
+4. Double thresholding: separates "weak" from "strong" edges according to 2 thresholds given at execution.
+5. Hysteresis to keep only significant edges : "strong" edges or "weak" edges connected to a strong edge (8-connexity)
+
+![Démonstration canny edge detection](README_data/img/canny_edge.jpg)
+Source image: wikipedia
+# --- Computer Science Master's 2nd year ---
+## \[Individual\] (Over) Path tracing rendering engine (Monte Carlo) - C++, SYCL
 [Code base](https://github.com/TomClabault/SYCL-ray-tracing)
 
 Path tracing engine written in C++. This project was initially written using SYCL. SYCL is a standard written by the Khronos Group that allows one C++ code to be ran on multiple devices including CPUs, GPUs and even FPGA accelerators. 
 Unfortunately, I have been facing issues (discussions with Intel can be found [here](https://community.intel.com/t5/Intel-oneAPI-Data-Parallel-C/SYCL-kernel-hangs-on-long-workloads/m-p/1536759#M3358) and [here](https://community.intel.com/t5/Intel-oneAPI-Data-Parallel-C/Can-t-find-the-source-of-memory-corruption-in-SYCL-ray-tracer/m-p/1539563#M3383)) with SYCL that lead me to reimplement it in pure C++ (the task was pretty much effortless as a SYCL code is already very close to pure C++).
 
-I'd like to rewrite this path tracer with the [HIP RT](https://gpuopen.com/hiprt/) library. This would allow the use of the ray tracing accelerators of RDNA2+ AMD GPUs. An HIP RT application can also be written using the [Orochi](https://gpuopen.com/orochi/) library which allows the application to run on NVIDIA GPUs as well as AMD GPUs (unlike [OptiX](https://developer.nvidia.com/rtx/ray-tracing/optix) which is NVIDIA only).
+This project has been rewritten with HIPRT and largely expanded in functionalities. The new project can be found [here](https://github.com/TomClabault/HIPRT-Path-Tracer).
 
 ![démonstration path tracer](README_data/img/rendu_PBRT_Dragon.jpg)
 Implemented features:
@@ -22,16 +69,7 @@ Implemented features:
 - Octree based BVH + 7 planes bounding volumes
 - Linear BVH adapted for GPU computations
 - Intel® Open Image Denoise integration
-## \[Personnal\] (Ongoing) 8086 Interpreter - C++
-[Code base](https://github.com/TomClabault/ComputerEnhance)
-
-Being interested in hardware architecture and software performance, I am following Casey Muratori's online course "Performance Aware Programming": https://www.computerenhance.com/ .
-
-This personnal project is an implementation of the homework given by Casey in his online course.
-
-Implemented features:
-- MOV instruction decoding
-## \[Individual\] (Done) Rasterization rendering engine - C++, OpenGL
+## \[Individual\] (Ongoing) Rasterization rendering engine - C++, OpenGL
 [Code base](https://github.com/TomClabault/M2-synthese/tree/master/TPs/from_scratch)
 
 Real-time rendering engine written in C++ and OpenGL 4.3.
@@ -45,13 +83,13 @@ Implemented features:
 - Microfacet BRDF : Metallic and roughness
 ![démonstration roughness](README_data/img/roughness.jpg)
 - Textures : Diffuse, mettalic, roughness, normals (normal mapping)
-- Normal mapping
+- Normal mapping (left with, right without)
 ![démonstration normal mapping](README_data/img/normal_mapping.jpg)
 - Irradiance Mapping (precomputation of the diffuse irradiance component from an environment map)
 ![démonstration irradiance map](README_data/img/irradiance_map.jpg)
 - Skyspheres & skyboxes support
 - HDR tone mapping (gamma et exposition)
-## \[Individual\] (Done) Geometric modeling (SDF, Bezier surfaces and mesh deformations) - C++, Qt6
+## \[Individual\] (Over) Geometric modeling (SDF, Bezier surfaces and mesh deformations) - C++, Qt6
 [Code base](https://github.com/TomClabault/M2_modelisation)
 
 This project implements the representation of implicit surfaces using SDFs  and their meshing using a marching cube algorithm. Some boolean operators are also defined on the SDFs (union, smooth union, intersection, difference, ...).
@@ -73,7 +111,7 @@ Implemented features:
 - Revolution surfaces using a Bezier curve as the revolution profile
 - Mesh twisting operator
 ![démonstration révolution et torsion maillage](README_data/img/torsion.jpg)
-## \[Individual\] (Done) 2D Mesh refinment (Delaunay triangulation) - C++
+## \[Individual\] (Over) 2D Mesh refinment (Delaunay triangulation) - C++
 [Code base](https://github.com/TomClabault/M2_GAM)
 
 Computational geometry project that manipulates a data structure representing meshes and that allows efficient implementations of computational geometry algorithms. 
@@ -83,24 +121,9 @@ Implemented features:
 - Lawson algorithme to improve the quality of an existing triangulation by making a Delaunay triangulation
 - Rupert algorithm (triangulation of a planar straight-line graph)
 ![démonstration Lawson](README_data/img/demo_lawson.jpg)
-# - M1 -
+# - Computer Science Master's 1st year -
 
-## \[Personnal\] (Done) Path tracinng rendering engine (Monte Carlo) - C++,  NVIDIA OptiX 7 (Owl)
-[Code base](https://github.com/TomClabault/Owl-OptiX-7)
-
-Path tracing rendering engine (Monte Carlo integration) written with the [Owl](https://github.com/owl-project/owl) library, a wrapper around [OptiX](https://developer.nvidia.com/rtx/ray-tracing/optix) 7 which NVIDIA's general (not reserved to rendering) ray tracing framework that can make use of the ray tracing hardware accelerators of NVIDIA GeForce RTX™ GPUs.
-
-Implemented features:
-- Direct lighting
-- Indirect lighting
-- Cook Torrance BRDF
-- Diffuse textures
-- Smooth normals
-- ImGui Integration
-- Integration of NVIDIA's OptiX™ AI-Accelerated Denoiser
-
-![démonstration rt optix](README_data/img/rt_optix.jpeg)
-## \[Individual\] (Done) Ray tracing & rasterization (hybrid) software rendering engine - C++, Qt6
+## \[Individual\] (Over) Ray tracing & rasterization (hybrid) software rendering engine - C++, Qt6
 [Code base](https://github.com/TomClabault/RayTracerCPP/tree/main/tp2)
 
 CPU ray-tracer + rasterizer entirely done in C++ and Qt6 for the interface.
@@ -129,7 +152,7 @@ The mesh of the sphere is perfectly flat (analytic sphere). The perceived geomet
 ![Démonstration SSAO](README_data/img/ssao.jpg)
 - Hair modelisation
 ![Démonstration cheveux](README_data/img/cheveux.jpg)
-## \[Group\] (Done) Edge (Sobel, Prewitt filters) and line (Hough transform) detection - C++, OpenCV
+## \[Group\] (Over) Edge (Sobel, Prewitt filters) and line (Hough transform) detection - C++, OpenCV
 [Code base](https://github.com/TomClabault/AnalyseImage)
 
 Group project that implements some edge and line detection algorithms in an image. OpenCV was used only for loading and displaying images.
@@ -151,21 +174,8 @@ From left to right:
 2. Visualization of the $\rho$ and $\theta$ parameters of the detected lines in Hough space
 3. Lines retained after thresholding the Hough space and delimiting the lines.
 # - L3 -
-## \[Personnal\] (Done) Canny Edge Detection Filter - C, NVIDIA CUDA
-[Code base](https://github.com/TomClabault/CUDAProgramming)
 
-Personnal project made with CUDA in pure C that implements the Canny edge detection filter. 
-
-Steps of the detection:
-1. Gaussian blur pass to reduce high frequencies in the image (reduces the risk of false positive edge detections due to the noise in the image)
-2. Sobel filter to detect edges (gradients)
-3. Apply a threshold to eliminate edges (gradients) that are too weak
-4. Double thresholding: separates "weak" from "strong" edges according to 2 thresholds given at execution.
-5. Hysteresis to keep only significant edges : "strong" edges or "weak" edges connected to a strong edge (8-connexity)
-
-![Démonstration canny edge detection](README_data/img/canny_edge.jpg)
-Source image: wikipedia
-## \[Group\] (Done) Ray tracing rendering engine - Java, JavaFX
+## \[Group\] (Over) Ray tracing rendering engine - Java, JavaFX
 [Code base](https://github.com/TomClabault/RayTracer/)
 
 Ray tracing rendering engine (direct lighting, no rendering equation estimation) entirely written in Java. The interface was written using JavaFX.
@@ -182,7 +192,7 @@ Implemented features:
 - Diffuse materials
 ![Démonstration ray tracing L2](README_data/img/RTL2.jpg)
 
-## \[Group\] (Done) Bibliographic references management application - Java, JavaFX
+## \[Group\] (Over) Bibliographic references management application - Java, JavaFX
 
 The goal of this project was to write an application that can ease the management of dozens if not hundreds of references when writing a thesis/a research paper/...
 
