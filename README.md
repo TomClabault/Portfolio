@@ -191,15 +191,3 @@ Implemented features:
 - Mirror materials
 - Diffuse materials
 ![ray tracer L2](README_data/img/RTL2.jpg)
-
-## \[Group\] (Over) Bibliographic references management application - Java, JavaFX
-
-The goal of this project was to write an application that can ease the management of dozens if not hundreds of references when writing a thesis/a research paper/...
-
-Implemented features:
-- Adding / removing a reference from the base
-- Searching in the base by keywords
-- Dynamic table display with customizable columns
-![search/insert](README_data/img/biblio1.PNG)
-- Editing the references already in the base
-![Reference editing](README_data/img/biblio2.PNG)
