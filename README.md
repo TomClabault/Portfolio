@@ -2,8 +2,8 @@
 ## (Ongoing) HIPRT Monte Carlo path tracing rendering engine - C++, Orochi + HIPRT, OpenGL
 [Code base](https://github.com/TomClabault/HIPRT-Path-Tracer)
 
-![HIPRT path tracer cover](README_data/img/hiprt_p1.jpg)
-![HIPRT path tracer cover](README_data/img/hiprt_dragon_glass.jpg)
+![HIPRT path tracer cover](data/img/hiprt_p1.jpg)
+![HIPRT path tracer cover](data/img/hiprt_dragon_glass.jpg)
 
 Physically based Monte Carlo path tracer written with the [HIP RT](https://gpuopen.com/hiprt/) and [Orochi](https://gpuopen.com/orochi/) libraries.
 HIPRT is AMD's equivalent to [OptiX](https://developer.nvidia.com/rtx/ray-tracing/optix). It allows the use of the ray tracing accelerators of RDNA2+ AMD GPUs and can run on NVIDIA devices as well (although it wouldn't take advatange of RT cores) as it is not AMD specific. 
@@ -31,7 +31,7 @@ Implemented features:
 - ImGui Integration
 - Integration of NVIDIA's OptiX™ AI-Accelerated Denoiser
 
-![OptiX path tracer cover](README_data/img/rt_optix.jpeg)
+![OptiX path tracer cover](data/img/rt_optix.jpeg)
 ## (Over) Canny Edge Detection Filter - C, NVIDIA CUDA
 [Code base](https://github.com/TomClabault/CUDAProgramming)
 
@@ -44,7 +44,7 @@ Steps of the detection:
 4. Double thresholding: separates "weak" from "strong" edges according to 2 thresholds given at execution.
 5. Hysteresis to keep only significant edges : "strong" edges or "weak" edges connected to a strong edge (8-connexity)
 
-![canny edge detection](README_data/img/canny_edge.jpg)
+![canny edge detection](data/img/canny_edge.jpg)
 Image source: [wikipedia](https://en.wikipedia.org/wiki/Canny_edge_detector#)
 # --- Computer Science Master's 2nd year ---
 ## \[Individual\] (Over) Path tracing rendering engine (Monte Carlo) - C++, SYCL
@@ -55,14 +55,14 @@ Unfortunately, I have been facing issues (discussions with Intel can be found [h
 
 This project has been rewritten with HIPRT and largely expanded in functionalities. The new project can be found [here](https://github.com/TomClabault/HIPRT-Path-Tracer).
 
-![C++ path tracer cover](README_data/img/rendu_PBRT_Dragon.jpg)
+![C++ path tracer cover](data/img/rendu_PBRT_Dragon.jpg)
 Implemented features:
 - Direct lighting
 - Indirect lighting
-![direct vs indirect lighting](README_data/img/indirect_lighting.jpg)
+![direct vs indirect lighting](data/img/indirect_lighting.jpg)
 - Microfacet BRDF (Cook Torrance BRDF) : Roughness and metallic
 - Cook Torrance BRDF Importance Sampling
-![Importance sampling comparison](README_data/img/brdf_is_comparison.jpg)
+![Importance sampling comparison](data/img/brdf_is_comparison.jpg)
 - HDR Environment Map
 - Environment Map Importance Sampling
 - Multiple Importance Sampling
@@ -75,19 +75,19 @@ Implemented features:
 
 Real-time rendering engine written in C++ and OpenGL 4.3.
 
-![OpenGL project cover](README_data/img/TP_OpenGL.jpg)
+![OpenGL project cover](data/img/TP_OpenGL.jpg)
 
 Implemented features:
 - ImGui integration
 - Frustum culling
 - Shadow mapping (Percentage closer filtering)
 - Microfacet BRDF : Metallic and roughness
-![roughness](README_data/img/roughness.jpg)
+![roughness](data/img/roughness.jpg)
 - Textures : Diffuse, mettalic, roughness, normals (normal mapping)
 - Normal mapping (left with, right without)
-![normal mapping](README_data/img/normal_mapping.jpg)
+![normal mapping](data/img/normal_mapping.jpg)
 - Irradiance Mapping (precomputation of the diffuse irradiance component from an environment map)
-![irradiance map](README_data/img/irradiance_map.jpg)
+![irradiance map](data/img/irradiance_map.jpg)
 - Skyspheres & skyboxes support
 - HDR tone mapping (gamma et exposition)
 ## \[Individual\] (Over) Geometric modeling (SDF, Bezier surfaces and mesh deformations) - C++, Qt6
@@ -102,16 +102,16 @@ Implemented features:
 - Boolean operators on SDFs (union, smooth union, intersection, difference, ...)
 - Ray marching algorithm for meshing an SDF
 
-![SDF](README_data/img/SDF_to_the_right.jpg)
+![SDF](data/img/SDF_to_the_right.jpg)
 
 - Meshing of a Bezier surface with arbitrary precision
 - Local deformation of a mesh
-![Bezier surfaces](README_data/img/Bezier.jpg)
+![Bezier surfaces](data/img/Bezier.jpg)
 
 
 - Revolution surfaces using a Bezier curve as the revolution profile
 - Mesh twisting operator
-![mesh revolution & twist](README_data/img/torsion.jpg)
+![mesh revolution & twist](data/img/torsion.jpg)
 ## \[Individual\] (Over) 2D Mesh refinment (Delaunay triangulation) - C++
 [Code base](https://github.com/TomClabault/M2_GAM)
 
@@ -121,7 +121,7 @@ Implemented features:
 - Insertion of a point outside or inside the convex hull of a triangulation + automatic meshing of the point into the existing triangulation
 - Lawson algorithme to improve the quality of an existing triangulation by making a Delaunay triangulation
 - Rupert algorithm (triangulation of a planar straight-line graph)
-![Lawson algorithm](README_data/img/demo_lawson.jpg)
+![Lawson algorithm](data/img/demo_lawson.jpg)
 # - Computer Science Master's 1st year -
 
 ## \[Individual\] (Over) Ray tracing & rasterization (hybrid) software rendering engine - C++, Qt6
@@ -132,27 +132,27 @@ CPU ray-tracer + rasterizer entirely done in C++ and Qt6 for the interface.
 Implemented features:
 
 - Qt6 C++ Interface
-![Qt6 interface](README_data/img/RT_M1_Interface1.jpg)
+![Qt6 interface](data/img/RT_M1_Interface1.jpg)
 - Ray tracing rendering
 - Rasterization rendering
 - Hybrid rendering (rasterization of the visibility + ray tracing for the shading)
 - Clip-space clipping algorithme
 - Hard shadows (shadow rays)
-![hard shadows](README_data/img/hard_shadows.jpg)
+![hard shadows](data/img/hard_shadows.jpg)
 - Octree based BVH + 7 planes bounding volumes
 - Rough reflexions (random ray cast around the normal)
 - Normal mapping
 - Diffuse texture, roughness map, ambient occlusion mapping
 - Parallax occlusion mapping
 - Skyspheres support
-![normal mapping, parallax mapping, rough reflexions, skysphere](README_data/img/sphere_rose.jpeg)
+![normal mapping, parallax mapping, rough reflexions, skysphere](data/img/sphere_rose.jpeg)
 The mesh of the sphere is perfectly flat (analytic sphere). The perceived geometry is only due to the parallax mapping algorithm.
 - Skyboxes support
 - Super Sampling Anti Aliasing (SSAA)
 - AVX2 Screen Space Ambient Occlusion (SSAO) implementation
-![AVX2 SSAO](README_data/img/ssao.jpg)
+![AVX2 SSAO](data/img/ssao.jpg)
 - Hair modelisation
-![hair demo](README_data/img/cheveux.jpg)
+![hair demo](data/img/cheveux.jpg)
 ## \[Group\] (Over) Edge (Sobel, Prewitt filters) and line (Hough transform) detection - C++, OpenCV
 [Code base](https://github.com/TomClabault/AnalyseImage)
 
@@ -161,15 +161,15 @@ Group project that implements some edge and line detection algorithms in an imag
 Implemented features:
 - Local thresholding method (useful when the same image contains variations in brightness):
 The top right of the sudoku grid is brighter than the bottom left part of the image. A global thresholding approach is thus ineffective:
-![sudoku global thresholding](README_data/img/threshold_global.jpg)
+![sudoku global thresholding](data/img/threshold_global.jpg)
 Half of the edges aren't detected because one single threshold can only match half of the image.
 
 A local thresholding approach is much more effective:
-![sudoku local thresholding](README_data/img/threshold_local.jpg)
+![sudoku local thresholding](data/img/threshold_local.jpg)
 Le thresholding level is ajusted according to the local brightness of the image. Global brightness changes barely affect this method and the results are way better than those obtained with a global thresholding.
 
 - Hough Transform (line detection):
-![hough transform](README_data/img/hough.jpg)
+![hough transform](data/img/hough.jpg)
 From left to right:
 1. Edge detection of a cube with a Kirsch filter
 2. Visualization of the $\rho$ and $\theta$ parameters of the detected lines in Hough space
@@ -191,4 +191,4 @@ Implemented features:
 - Refractif materials
 - Mirror materials
 - Diffuse materials
-![ray tracer L2](README_data/img/RTL2.jpg)
+![ray tracer L2](data/img/RTL2.jpg)
