@@ -91,7 +91,7 @@ Implemented features:
 - Skyspheres & skyboxes support
 - HDR tone mapping (gamma et exposition)
 ## \[Individual\] (Over) Geometric modeling (SDF, Bezier surfaces and mesh deformations) - C++, Qt6
-[Code base](https://github.com/TomClabault/M2_modelisation)
+[Code base](https://github.com/TomClabault/M2_modeling)
 
 This project implements the representation of implicit surfaces using SDFs  and their meshing using a marching cube algorithm. Some boolean operators are also defined on the SDFs (union, smooth union, intersection, difference, ...).
 Signed distance functions are very powerful tools (cf. [Inigo Quilez' Shadertoy profile](https://www.shadertoy.com/user/iq)).
