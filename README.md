@@ -1,4 +1,4 @@
-# This portfolio isn't maintained anymore, please my [website](https://tomclabault.github.io/blog/) for an updated portfolio.
+# This portfolio isn't maintained anymore, please see my [website](https://tomclabault.github.io/blog/) for an updated portfolio.
 # --- Side projects ---
 ## (Ongoing) HIPRT Monte Carlo path tracing rendering engine - C++, Orochi + HIPRT, OpenGL
 [Code base](https://github.com/TomClabault/HIPRT-Path-Tracer)
